@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: simpleMove
   title: Moved
-  author: ThatOneKid
+  author: eXish
   description: "When you see a random button on your bomb, press it. It may be this
     module.\n\nHTML: https://ktane.timwi.de/HTML/Moved.html\r\nPDF: https://ktane.timwi.de/PDF/Moved.pdf\r\n\r\nMoved
     (simpleMove) v1.1.0\r\nModule by Anonymous, maintained by eXish\r\nTwitch Plays

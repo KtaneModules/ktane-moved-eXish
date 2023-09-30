@@ -12,6 +12,7 @@ public class SimpleModuleScript : MonoBehaviour {
 	public KMAudio audio;
 	public KMBombInfo info;
 	public KMBombModule module;
+	public KMRuleSeedable ruleSeed;
 	public KMSelectable[] movingButton;
 	public KMSelectable[] pressableModule;
 	public GameObject movingButtonObject;
@@ -26,6 +27,7 @@ public class SimpleModuleScript : MonoBehaviour {
 
 	bool _isSolved = false;
 	bool incorrect = false;
+	int ruleSelected;
 
 	void Awake()
 	{
@@ -51,6 +53,11 @@ public class SimpleModuleScript : MonoBehaviour {
 		ypos = Rnd.Range (0f, 2f / 10f);
 
 		movingButtonObject.transform.localPosition = new Vector3 (xpos, ypos, zpos);
+
+		var rng = ruleSeed.GetRNG();
+		Log("Using rule seed: " + rng.Seed);
+		if (rng.Seed != 1)
+			ruleSelected = rng.Next(3);
 	}
 
 	void movingButtonStuff(KMSelectable pressedButton)
@@ -68,6 +75,8 @@ public class SimpleModuleScript : MonoBehaviour {
 
 		if (_isSolved == false) 
 		{
+			if (ruleSelected == 1)
+				incorrect = true;
 			switch (buttonPosition) 
 			{
 			case 0:
@@ -76,6 +85,7 @@ public class SimpleModuleScript : MonoBehaviour {
 			}
 			if (incorrect) 
 			{
+				Log("However, I did not want you to press the button. Strike!");
 				module.HandleStrike ();
 				incorrect = false;
 			}
@@ -103,6 +113,8 @@ public class SimpleModuleScript : MonoBehaviour {
 
 		if (_isSolved == false) 
 		{
+			if (ruleSelected == 2)
+				incorrect = true;
 			switch (buttonPosition) 
 			{
 			case 0:
@@ -111,6 +123,7 @@ public class SimpleModuleScript : MonoBehaviour {
 			}
 			if (incorrect) 
 			{
+				Log("However, I did not want you to press the question mark. Strike!");
 				module.HandleStrike ();
 				incorrect = false;
 			}
@@ -144,7 +157,7 @@ public class SimpleModuleScript : MonoBehaviour {
 		else if (command.EqualsIgnoreCase("?"))
 		{
 			yield return null;
-			pressableModule[1].OnInteract();
+			pressableModule[0].OnInteract();
 		}
 	}
 

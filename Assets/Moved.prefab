@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 114005106782342168}
   - component: {fileID: 82892727512117876}
   - component: {fileID: 114297414387331042}
+  - component: {fileID: 114646767950618826}
   m_Layer: 0
   m_Name: Moved
   m_TagString: Untagged
@@ -1123,14 +1124,12 @@ MonoBehaviour:
   audio: {fileID: 114811005963474852}
   info: {fileID: 114888850690411830}
   module: {fileID: 114121776926662430}
+  ruleSeed: {fileID: 114646767950618826}
   movingButton:
   - {fileID: 114077119957862666}
   pressableModule:
   - {fileID: 114267801437102650}
   movingButtonObject: {fileID: 1739760623734420}
-  xpos: 0
-  zpos: 0
-  ypos: 0
   correct: {fileID: 82892727512117876}
 --- !u!114 &114300080465805070
 MonoBehaviour:
@@ -1171,6 +1170,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/DiffuseTint
+--- !u!114 &114646767950618826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1912316318805554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf69c2de51bd3c43bbd9bc22578ee08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _seed: 1
 --- !u!114 &114671213324823700
 MonoBehaviour:
   m_ObjectHideFlags: 1
